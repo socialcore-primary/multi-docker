@@ -14,10 +14,11 @@ after_success:
   - docker build -t socialcore/multi-docker-server ./server
   - docker build -t socialcore/multi-docker-worker ./worker
   # log in to docker cli
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker login -u $DOCKER_ID -p $DOCKER_PASSWORD
   # push to docker
   - docker push socialcore/multi-docker-client
   - docker push socialcore/multi-docker-nginx
   - docker push socialcore/multi-docker-server
   - docker push socialcore/multi-docker-worker
-  
+
