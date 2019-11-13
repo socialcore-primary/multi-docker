@@ -22,3 +22,15 @@ after_success:
   - docker push socialcore/multi-docker-server
   - docker push socialcore/multi-docker-worker
 
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-2-171566138074
+  bucket_path: docker-multi-travis
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  

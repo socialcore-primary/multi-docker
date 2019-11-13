@@ -1,0 +1,36 @@
+{
+    "AWSEBDockerrunVersion":2,
+    "containerDefinitions": [
+        {
+            "name": "complex-client",
+            "image": "socialcore/multi-docker-client",
+            "hostname": "complex-client",
+            "essential": false
+        },
+        {
+            "name": "complex-server",
+            "image": "socialcore/multi-docker-server",
+            "hostname": "complex-server",
+            "essential": false
+        },
+        {
+            "name": "complex-worker",
+            "image": "socialcore/multi-docker-worker",
+            "hostname": "complex-worker",
+            "essential": false
+        },
+        {
+            "name": "complex-nginx",
+            "image": "socialcore/multi-docker-nginx",
+            "hostname": "complex-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["complex-client", "complex-server"]
+        }
+    ]
+}
