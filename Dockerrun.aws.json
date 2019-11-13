@@ -5,25 +5,29 @@
             "name": "complex-client",
             "image": "socialcore/multi-docker-client",
             "hostname": "complex-client",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "complex-server",
             "image": "socialcore/multi-docker-server",
             "hostname": "complex-server",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "complex-worker",
             "image": "socialcore/multi-docker-worker",
             "hostname": "complex-worker",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "complex-nginx",
             "image": "socialcore/multi-docker-nginx",
             "hostname": "complex-nginx",
             "essential": true,
+            "memory": 128,
             "portMappings": [
                 {
                     "hostPort": 80,
